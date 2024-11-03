@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/SPA.min.css">
+    <title>{{ error_description }}</title>
+</head>
+<body>
+    <div class="body">
+        <div class="error_block">
+            <h1 class="error-head">Ошибка {{ error_code }}</h1>
+            <p class="error-description">{{ error_description }}</p>
+            {% if app_name %}
+            <p class="back-to-app-index">перейти на <a href="/{{app_name}}/">главную</a></p>
+            {% else %}
+            <p class="back-to-global-index">перейти на <a href="/">главную</a></p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

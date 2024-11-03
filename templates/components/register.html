@@ -1,0 +1,14 @@
+        <div class="form">
+            <form action="/api/register" method="post">{% with messages = get_flashed_messages(with_categories=true) %}{% if messages %}
+                {% for category, message in messages %}
+                <p class="{{ category }}">{{ message }}</p>
+                {% endfor %}
+                {% endif %}{% endwith %}<input type="text" name="csrf" value="{{ csrf_token }}" class="csrf"/>
+                <input type="text" name="login" placeholder="username" autocomplete="username" class="submit_input" required/>
+                <!-- <input type="text" name="welcome_code" placeholder="welcome code" autocomplete="" class="submit_input" required/> -->
+                <input type="password" name="password" placeholder="password" autocomplete="new-password" class="submit_input" required/>
+                <input type="password" name="password2" placeholder="repeat password" autocomplete="new-password" class="submit_input" required/>
+                <input type="submit" value="войти" class="submit_button" />
+                <a href="/" class="spf-link black_link">вход</a>
+            </form>
+        </div>

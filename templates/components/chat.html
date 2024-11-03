@@ -1,0 +1,32 @@
+<div id="chats">
+    {% if chats_html %}
+    {{ chats_html|safe }}
+    {% else %}
+    <div id="zero-chats">Нет чатов</div>
+    {% endif %}
+</div>
+<div id="chat">
+    <div id="chat-inner">
+      <div id="chat_messages" class="void-scroll">
+        {% if chat_html %}
+        {{ chat_html|safe }}
+        {% else %}
+        <div id="zero-messages" class="message">Нет сообщений</div>
+        {% endif %}
+      </div>
+      <div id="chat_input">
+        <input id="message_file" type="file" name="file" value="файл" class="csrf">
+        <div id="add_file_button" onclick="$('#message_file').click()">
+          <img src="/static/image/clip.png" onerror="$('#add_file_button').html('файл')">
+        </div>
+        <input id="message_text" type="text" placeholder="ваше сообщение" class="submit_input"><br>
+        <button class="submit_button" onclick="send_message();">отправить</button>
+      </div>
+    </div>
+</div>
+<script>
+    setTimeout(function() {
+        var chat_messages = document.querySelector("#chat_messages");
+        chat_messages.scrollTo(0, chat_messages.scrollHeight);  
+    }, 190);
+</script>

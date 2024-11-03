@@ -1,0 +1,108 @@
+# users V, settings V, notifications V, chasts V, messages V
+
+client:
+  login_user_success:
+  login_user_error:
+
+  logout_user: (C:, S:V)
+
+  get_users_success: (C:V, S:V)
+  get_users_error:
+
+
+  get_settings_success:
+  get_settings_error:
+
+  update_settings_success:
+  update_settings_error:
+
+
+  new_notification:
+  get_notifications_success:
+  get_notifications_error:
+
+  remove_notification:
+  clear_notifications:
+
+
+  cteate_personal_chat_success:
+  cteate_personal_chat_error:
+
+  create_group_chat_success:
+  create_group_chat_error:
+
+  get_chat_success: (C:V, S:V)
+  get_chat_error:
+
+  update_chat_settings_success:
+  update_chat_settings_error:
+
+  kick_user_success:
+  kick_user_error:
+
+  delete_chat_success:
+  delete_chat_error:
+
+  chat_status:
+
+  leave_chat:
+
+  update_chats: (C:V, S:V)
+
+
+  send_message_success:
+  send_message_error:
+
+  new_message: (C:V, S:V)
+  get_before_messages_success: (C:V, S:V)
+  get_before_messages_error:
+  get_after_messages_success: (C:V, S:V)
+  get_after_messages_error:
+
+  update_message_success:
+  update_message_error:
+
+  delete_message_success:
+  delete_message_error:
+
+
+
+server:
+  login_user:
+  logout_user: (S:V)
+
+
+  get_settings:
+  update_settings:
+
+
+  get_notifications:
+  update_notification:
+  remove_notification:
+  remove_notifications:
+
+
+  cteate_personal_chat:
+  create_group_chat: (C:V)
+
+  get_chat: (S:V, C:V)
+
+  update_chat_settings:
+
+  kick_user_from_chat: (S:V)
+
+  delete_chat:
+
+  chat_status:
+
+  leave_chat:
+
+
+  send_message: (S:V, C:V)
+
+  get_before_messages: (S:V)
+  get_after_messages: (S:V)
+
+  update_message:
+
+  delete_message:

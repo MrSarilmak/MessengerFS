@@ -1,0 +1,126 @@
+[
+  {
+    "login": "MrSarilmak",
+    "name": "Арсений Муравьёв",
+    "status": "Administrator",
+    "password": "3efc5011b8c098e5ae3d29695b0838ee5ef3ff0a492b1a880e686617872e8eb9:4897f22aa85846e5a2b5ccdac04f8602d174d38968b64da5af61340ff51f90c9",
+    "notifications": [],
+    "settings": {
+      "theme": "white"
+    },
+    "chats": [
+      "a4c3e6d8-5f6e-4b8e-9e3e-5a6b8e9e3e5b",
+      "a4c3e6d8-5f6e-4b8e-9e3e-5a6b8e9e3e5c",
+      "e5e349cf-3418-4a2c-bb00-2eab8b481b00",
+      "c5556ade-223e-47c1-a9f3-2238829ce005",
+      "c5433aa2-1923-4e90-ad66-a45b620ac6da",
+      "c4c1ff08-de50-4768-a027-33b621a2708f",
+      "1f5c3701-e88f-4a41-9907-967ccd974d4a",
+      "f6be5044-9561-4072-9718-ce65c56d99e4"
+    ]
+  },
+  {
+    "login": "Admin_2",
+    "name": "Администратор",
+    "status": "Administrator",
+    "password": "3efc5011b8c098e5ae3d29695b0838ee5ef3ff0a492b1a880e686617872e8eb9:4897f22aa85846e5a2b5ccdac04f8602d174d38968b64da5af61340ff51f90c9",
+    "notifications": [],
+    "settings": {
+      "theme": "white"
+    },
+    "chats": [
+      "a4c3e6d8-5f6e-4b8e-9e3e-5a6b8e9e3e5b",
+      "a4c3e6d8-5f6e-4b8e-9e3e-5a6b8e9e3e5c",
+      "c5433aa2-1923-4e90-ad66-a45b620ac6da"
+    ]
+  },
+  {
+    "login": "amur608",
+    "logo": "photo_2024-04-17_07-15-29.jpg",
+    "name": "Александр",
+    "status": "User",
+    "password": "5ee0efd9bbd4cae5b4857ab1b1045ab1e48603dc32e0c0fdf396353cc4f81d09:b68559a225e84c0d99a42076c26d88258d1f4f5bd1214fd28321b6a705fdee63",
+    "notifications": [],
+    "settings": {
+      "theme": "white"
+    },
+    "chats": [
+      "e5e349cf-3418-4a2c-bb00-2eab8b481b00",
+      "c5556ade-223e-47c1-a9f3-2238829ce005"
+    ]
+  },
+  {
+    "login": "aamzkz",
+    "logo": "photo_2016-02-26_22-34-33.jpg",
+    "name": "Аня",
+    "status": "User",
+    "password": "3efc5011b8c098e5ae3d29695b0838ee5ef3ff0a492b1a880e686617872e8eb9:4897f22aa85846e5a2b5ccdac04f8602d174d38968b64da5af61340ff51f90c9",
+    "notifications": [],
+    "settings": {
+      "theme": "white"
+    },
+    "chats": [
+      "c5556ade-223e-47c1-a9f3-2238829ce005",
+      "8480bfc9-93bd-4a65-b41d-e20be72e1c2e"
+    ]
+  },
+  {
+    "login": "kriptavorsinka",
+    "logo": "photo_2024-08-29_12-40-59.jpg",
+    "name": "Люся",
+    "status": "User",
+    "password": "3efc5011b8c098e5ae3d29695b0838ee5ef3ff0a492b1a880e686617872e8eb9:4897f22aa85846e5a2b5ccdac04f8602d174d38968b64da5af61340ff51f90c9",
+    "notifications": [],
+    "settings": {
+      "theme": "white"
+    },
+    "chats": [
+      "c5556ade-223e-47c1-a9f3-2238829ce005",
+      "1c828f4d-2ed6-4b95-af20-3f7fcb3512da"
+    ]
+  },
+  {
+    "login": "TesakovaAnna",
+    "name": "Анна Черных",
+    "status": "User",
+    "password": "7b52c2215a6a60013891c8e385b43065a5214719c5bd0a62c3647ff4d183d7a4:ad2d4a3b5826451dbf0af1e4db05d32a2a8a1abff9bb4c6d99be420c6bd00f56",
+    "notifications": [],
+    "settings": {
+      "theme": "white"
+    },
+    "chats": [
+      "1c828f4d-2ed6-4b95-af20-3f7fcb3512da",
+      "8480bfc9-93bd-4a65-b41d-e20be72e1c2e",
+      "c4c1ff08-de50-4768-a027-33b621a2708f"
+    ]
+  },
+  {
+    "login": "TatyanaGutseva",
+    "name": "Татьяна Гуцева ",
+    "status": "User",
+    "password": "b552bc59c1b81a669bcd55da7dbe614607cc1b24a3ba37cb7026bd1831827954:3599f52bb53148969b7f9995e382f5377f1e89a10a6f4d9f9ec2bf070d7cd1da",
+    "notifications": [],
+    "settings": {
+      "theme": "white"
+    },
+    "chats": [
+      "1f5c3701-e88f-4a41-9907-967ccd974d4a",
+      "f6be5044-9561-4072-9718-ce65c56d99e4"
+    ],
+    "logo": "IMG_20241020_135509.jpg"
+  },
+  {
+    "login": "sirnik#usoppkinn",
+    "name": "sirnik#usoppkinn",
+    "status": "User",
+    "password": "0d440af80cc7272adf638ecbb358e61f075a4475d8dc1edb1abb313593259b4d:132770e58c964c8fba0a154546c599a2ae284ae25d354c9aaf1c725324972aa4",
+    "notifications": [],
+    "settings": {
+      "theme": "white"
+    },
+    "chats": [
+      "f6be5044-9561-4072-9718-ce65c56d99e4"
+    ],
+    "logo": "292210BE-9A37-451C-9B8F-A6E90DCDDD7D.jpeg"
+  }
+]

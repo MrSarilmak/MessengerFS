@@ -1,0 +1,52 @@
+<div id="chats">
+  {% if chats_html %} {{ chats_html|safe }} {% else %}
+  <div id="zero-chats">Нет чатов</div>
+  {% endif %}
+</div>
+<div id="chat">
+  <div id="chat-inner">
+    <div id="chat_messages" class="void-scroll">
+      <div class="message right">
+        <div class="massage_data">
+          <p class="user_and_answer">
+            <span class="user_name">Арсений Муравьёв</span>
+            <a onclick="open_message(1)" сlass="answer_link">ответить</a>
+          </p>
+          <div class="reply" style="padding: 5px;border-left: 3px solid #3cb4d9;border-radius: 5px">
+            <h1 style="color: #3cb4d9;font-size: 16px">Арсений Муравьёв</h1>
+            <p style="font-size: 14px">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repudiandae obcaecati velit doloribus fuga magnam, recusandae ducimus omnis blanditiis optio eveniet alias tenetur tempore eum, praesentium placeat? Quisquam est ipsam perspiciatis?</p>
+          </div>
+          <p class="msg_and_time">
+            <span class="message_text">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente consequatur itaque quia, temporibus accusantium doloribus ea laboriosam doloremque accusamus nihil esse deserunt, rerum dicta mollitia asperiores molestias, dolorem numquam dolores?
+            </span>
+            <span class="message_time">19.09</span>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="chat_input">
+      <input
+        id="message_file"
+        type="file"
+        name="file"
+        value="файл"
+        class="hidden"
+      />
+      <!-- <div id="add_file_button" onclick="open_chat_pin_file_menu()"> -->
+      <div id="add_file_button" onclick="$('#message_file').click()">
+        <img
+          src="/static/image/clip.png"
+          onerror="$('#add_file_button').html('файл')"
+        />
+      </div>
+      <input
+        id="message_text"
+        type="text"
+        placeholder="ваше сообщение"
+        class="submit_input"
+      /><br />
+      <button class="submit_button" onclick="send_message();">отправить</button>
+    </div>
+  </div>
+</div>

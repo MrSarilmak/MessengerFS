@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/static/js/libs/socket.io.js"></script>{% if is_admin %}
+    <script defer src="/static/js/scripts/admin_SPA.js"></script>
+    {% endif %}<title>Messager SPA Logs</title>
+</head>
+<body>
+    {% if logs %}
+        {% for log in logs %}
+            <p>{{ log }}</p>
+        {% endfor %}
+    {% endif %}
+</body>
+</html>

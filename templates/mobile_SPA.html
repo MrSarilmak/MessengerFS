@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/static/image/shadow.png">
+    <link rel="stylesheet" href="/static/css/mobile_SPA.min.css">
+    <script src="/static/js/libs/jquery.js"></script>
+    <script src="/static/js/libs/socket.io.js"></script>
+<!--    <script src="/static/js/libs/spf/spf.js"></script>-->
+    <!-- <script src="/static/js/libs/MediaStreamRecorder.js"></script> -->
+    <script defer src="/static/js/scripts/mobile_SPA.js"></script>{% if is_admin %}
+    <script defer src="/static/js/scripts/admin_SPA.js"></script>
+    {% endif %}<title>My Messager SPA mobile</title>
+</head>
+<div id="smoke" style="display: none;"></div>
+<!-- <div id="smoke"></div> -->
+<div id="smoke-closable" style="display: none;"
+onclick="close_modals()"></div>
+<div id="void-closable" style="display: none;"
+onclick="close_modals()"></div>
+<div id="bm-modal" style="display: none;">
+    <div id="user-logo">
+        <img class="user_logo" src="/static/image/{{ user_logo }}"
+        onerror="this.src='/static/image/placeholder.jpg'">
+    </div>
+    {% if user_name %}
+    <div id="user-name" class="bm-modal-el">{{ user_name }}</div>
+    {% else %}
+    <div id="user-name" class="bm-modal-el">Arseniy Muraviev</div>
+    {% endif %}
+    <hr>
+    <div id="create-group" class="bm-modal-el">
+        <a onclick="open_create_group_modal()" class="black_link">Создать группу</a>
+    </div>
+    <div id="create-priv-chat" class="bm-modal-el">
+        <a onclick="open_create_private_chat_modal()" class="black_link">Создать чат</a>
+    </div>
+    <div id="settings" class="bm-modal-el">
+        <a onclick="open_settings_modal()" class="black_link">настройки</a>
+    </div>
+    {% if is_admin %}
+    <div id="logs" class="bm-modal-el">
+        <a href="/logs" class="black_link">логи</a>
+    </div>
+    {% endif %}
+    <div id="settings" class="bm-modal-el">
+        <a onclick="logout_user()" class="black_link">выход</a>
+    </div>
+</div>
+<div id="create-private-chat-modal">
+    <div class="head">
+        <span class="bold">Выбор собеседника</span>
+    </div>
+    <div class="users" id="create-private-chat-modal_users">
+        <div class="user">
+            <div class="logo">
+                <img src="/static/image/placeholder.jpg">
+            </div>
+            <div class="data">
+                <div class="user-name">Test1</div>
+            </div>
+        </div>
+        <div class="user">
+            <div class="logo">
+                <img src="/static/image/placeholder.jpg">
+            </div>
+            <div class="data">
+                <div class="user-name">Test2</div>
+            </div>
+        </div>
+        <div class="user">
+            <div class="logo">
+                <img src="/static/image/placeholder.jpg">
+            </div>
+            <div class="data">
+                <div class="user-name">Test3</div>
+            </div>
+        </div>
+    </div>
+    <div class="buttons">
+        <a onclick="close_create_private_chat_modal()" class="blue-btn cansel">Отмена</a>
+        <a onclick="send_create_priv_chat();close_create_private_chat_modal()" class="blue-btn">Создать</a>
+    </div>
+</div>
+<div id="create-group-modal">
+    <div>
+        <form id="create_group_step_1">
+            <label>
+                <input id="new_group_logo" type="file" name="group_logo" style="display: none;">
+                <div class="logo">
+                    <img class="logo" src="/static/image/icons/gray-camera.svg">
+                </div>
+            </label>
+            <input id="new_group_name" type="text" name="group_name" placeholder="название чата">
+        </form>
+        <button onclick="reset_create_group_modal();close_modals()" class="text-btn">Отмена</button>
+        <button onclick="open_create_group_select_users_modal()">Далее</button>
+    </div>
+</div>
+<div id="create-group-modal-select-users">
+    <div class="head">
+        <span class="bold">Добавить учасников</span>
+    </div>
+    <div class="users" id="create-group-modal_users">
+        <!-- <div class="user">
+            <div class="checkbox">
+                <input type="checkbox">
+            </div>
+            <div class="logo">
+                <img src="/static/image/placeholder.jpg">
+            </div>
+            <div class="data">
+                <div class="user-name">Test</div>
+            </div>
+        </div> -->
+    </div>
+    <div class="buttons">
+        <a onclick="open_create_group_modal()" class="blue-btn cansel">Отмена</a>
+        <a onclick="close_modals();send_create_group()" class="blue-btn">Создать</a>
+    </div>
+</div>
+<div id="chat-menu-modal">
+    <div id="chat-menu-head" style="display: flex;">
+        <img id="chat-menu-group-logo" class="group_logo"
+        onerror="this.onerror=null;this.remove()">
+        <div class="group_info">
+            <h6 class="group_name" id="chat-menu-group-name"></h6>
+            <p class="group_status" id="chat-menu-group-status"></p>
+        </div>
+    </div>
+    <div id="chat-menu-members-head">Учасники</div>
+    <div id="chat-menu-members">
+        <div id="cm1" class="chat-member">
+            <img src="/static/image/placeholder.jpg" class="user_logo" onerror="this.onerror=null;this.remove()">
+            <div class="user_info">
+                <h6 id="un1" class="user_name"></h6>
+                <p id="us1" class="user_status"></p>
+            </div>
+        </div>
+        <div id="cm2" class="chat-member">
+            <img src="/static/image/placeholder.jpg" class="user_logo" onerror="this.onerror=null;this.remove()">
+            <div class="user_info">
+                <h6 id="un2" class="user_name"></h6>
+                <p id="us2" class="user_status"></p>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="pin-file-modal">
+    <div onclick="$('#message_file').click()">
+        <img src="/static/image/icons/dark-file.svg">
+        <p>file</p>
+    </div>
+    <div onclick="$('#message_file').click()">
+        <img src="/static/image/icons/dark-file.svg">
+        <p>media</p>
+    </div>
+</div>
+<div id="settings-modal">
+    <h1><span>настройки</span><span onclick="close_settings_modal()">&#10006;</span></h1>
+    <div class="param">
+        <label style="display: block;width: fit-content;">
+            <input id="settings-modal-user-logo" type="file" name="settings_logo"
+            style="display: none;background-color: #f0f0f0;">
+            <div class="logo background-image" src="/static/image/{{ user_logo }}">
+                <img class="logo" src="/static/image/icons/gray-camera.svg">
+            </div>
+        </label>
+    </div>
+    <div class="param">
+        <span>name: </span>
+        <span id="settings-modal-old-user-name" class="hidden">{{ user_name }}</span>
+        <span id="settings-modal-user-name"
+        contenteditable="true">{{ user_name }}</span>
+    </div>
+    {% if is_admin %}
+    <div class="param">
+        <span>register: </span>
+        {% if enable_registration %}
+        <span id="settings-modal-register-off" class="blue-btn hidden"
+            onclick="enable_register();$('#settings-modal-register-off').addClass('hidden');
+            $('#settings-modal-register-on').removeClass('hidden')">off</span>
+        <span id="settings-modal-register-on" class="blue-btn"
+            onclick="disable_register();$('#settings-modal-register-on').addClass('hidden');
+            $('#settings-modal-register-off').removeClass('hidden')">on</span>
+        {% else %}
+        <span id="settings-modal-register-off" class="blue-btn"
+            onclick="enable_register();$('#settings-modal-register-off').addClass('hidden');
+            $('#settings-modal-register-on').removeClass('hidden')">off</span>
+        <span id="settings-modal-register-on" class="blue-btn hidden"
+            onclick="disable_register();$('#settings-modal-register-on').addClass('hidden');
+            $('#settings-modal-register-off').removeClass('hidden')">on</span>
+        {% endif %}
+    </div>
+    <div class="param">
+        <span class="blue-text" onclick="reload_all()">reload</span>
+    </div>
+    {% endif %}
+    <div class="param">
+        <a onclick="open_change_password_modal()" class="blue-btn">Сменить пароль</a>
+    </div>
+</div>
+<div id="change-password-modal">
+    <h1 style="font-size: 35px;margin: 0 10px;">Сменить пароль</h1>
+    <span id="change-password-modal-error" style="color: red;"></span>
+    <form style="font-size: 17px;">
+        <input type="text" name="csrf" value="{{ csrf_token }}" class="csrf"
+        autocomplete="off">
+        <input id="change-password-modal_old-password" type="password" name="old_password"
+        placeholder="Старый пароль" autocomplete="current-password" required>
+        <input id="change-password-modal_new-password" type="password" name="new_password"
+        placeholder="Новый пароль" autocomplete="new-password" required>
+        <input id="change-password-modal_new-password-repeat" type="password" name="new_password2"
+        placeholder="Повторите новый пароль" autocomplete="new-password" required>
+        <button type="button" class="gray-btn" onclick="close_modals();$('#change-password-modal-error').text('')">Отмена</button>
+        <button type="button" class="blue-btn" onclick="change_password()">Сменить пароль</button>
+    </form>
+</div>
+<!-- <iframe id="get_meta_tags" class="hidden" frameborder="0" credentialless sandbox></iframe> -->
+<body>
+    {% if is_login %}
+    <div id="global-header">
+        <a onclick="open_bm()" style="cursor: pointer;"><div class="bm"></div></a>
+    </div>
+    <div id="chat-header" style="display: none;align-items: center;">
+        <div>
+            <a onclick="close_chat()"
+            class="white_link">&lt;-</a>
+        </div>
+        <div id="open-chat-menu" style="display: flex;width: 100%;" onclick="open_chat_menu()">
+            <div class="logo">
+                <img class="chat_logo" id="chat_logo">
+            </div>
+            <div class="metadata">
+                <div id="chat_name"></div>
+                <div id="chat_status"></div>
+            </div>
+        </div>
+    </div>
+    <div id="exit-header" style="display: none;">
+        <a href="/"
+        class="white_link">&lt;-</a>
+    </div>
+    {% else %}
+    {% endif %}
+    <div id="content">{% if content %}
+{{ content|safe }}
+    {% endif %}</div>
+</body>
+</html>

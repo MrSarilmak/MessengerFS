@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/static/image/shadow.png">
+    <link rel="stylesheet" href="/static/css/mobile_SPA.min.css">
+    <script src="/static/js/libs/jquery.js"></script>
+    <script src="/static/js/libs/orbit.min.js"></script>
+    <script src="/static/js/libs/ratchet.min.js"></script>
+    <script src="/static/js/libs/socket.io.js"></script>
+    <script defer src="/static/js/scripts/mobile_SPA.js"></script>
+    <title>messenger PWA mobile</title>
+</head>
+<div id="smoke" style="display: none;"></div>
+<!-- <div id="smoke"></div> -->
+<div id="smoke-closable" style="display: none;"
+onclick="close_modals()"></div>
+<div id="bm-modal" style="display: none;">
+    <div id="user-logo">
+        <img class="user_logo" src="/static/image/placeholder.jpg"
+        onerror="this.src='/static/image/placeholder.jpg'">
+    </div>
+    {% if user_name %}
+    <div id="user-name" class="bm-modal-el">{{ user_name }}</div>
+    {% else %}
+    <div id="user-name" class="bm-modal-el">Arseniy Muraviev</div>
+    {% endif %}
+    <hr>
+    <div id="create-group" class="bm-modal-el">
+        <a onclick="open_create_group_modal()" class="black_link">Создать чат</a>
+    </div>
+    <!-- <div id="create-group" class="bm-modal-el">
+        <a onclick="open_group()" class="black_link">кошелек</a>
+    </div>
+    <div id="contacts" class="bm-modal-el">
+        <a onclick="open_group()" class="black_link">контакты</a>
+    </div>
+    <div id="favourites" class="bm-modal-el">
+        <a onclick="open_group()" class="black_link">избранное</a>
+    </div> -->
+    <div id="settings" class="bm-modal-el">
+        <a href="/settings" class="black_link">настройки</a>
+    </div>
+</div>
+<div id="create-group-modal">
+    <div>
+        <img class="logo" src="/static/image/placeholder.jpg"
+        onerror="this.src='/static/image/placeholder.jpg'">
+    </div>
+    <div>
+        <!-- <form action="/api/create_group" method="post">
+            <input type="text" name="group_name" placeholder="название чата">
+            <input type="submit" value="далее">
+        </form> -->
+        <button onclick="open_create_group_select_users_modal()">далее</button>
+    </div>
+</div>
+<div id="create-group-modal-select-users">
+    <div class="head">
+        <span class="bold">Добавить учасников</span>
+        <span style="margin-left: 10px;">1 / 200000</span>
+    </div>
+    <div class="users">
+        <div class="user">
+            <div class="logo">
+                <img src="/static/image/placeholder.jpg">
+            </div>
+            <div class="data">
+                <div class="user-name">Test</div>
+            </div>
+        </div>
+    </div>
+    <div class="buttons">
+        <a onclick="open_create_group_modal()" class="blue-btn cansel">Отмена</a>
+        <a onclick="close_modals();alert('not implemented')" class="blue-btn">Создать</a>
+    </div>
+</div>
+<body>
+
+</body>
+</html>
